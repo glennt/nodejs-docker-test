@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-test-local
+  labels:
+    app: nodejs-test-local
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-test-local
+  template:
+    metadata:
+      labels:
+        app: nodejs-test-local
+    spec:
+      containers:
+      - name: nodejs-test-local
+        image: nodejs-test-local:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-test-deployment
+  name: nodejs-test
   labels:
     app: nodejs-test
 spec:
@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
       - name: nodejs-test
-        image: nodejs-test:latest
-        imagePullPolicy: Never
+        image: gtolenti/nodejs-test:latest
         ports:
         - containerPort: 5000
