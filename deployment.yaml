@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-test-deployment
+  labels:
+    app: nodejs-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-test
+  template:
+    metadata:
+      labels:
+        app: nodejs-test
+    spec:
+      containers:
+      - name: nodejs-test
+        image: nodejs-test:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
